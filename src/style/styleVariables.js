@@ -4,5 +4,5 @@ export const color = {
 	grey: '#e0e0e0',
 	white: '#ffffff',
 }
-export const spacing = { gutter: '1rem' }
+export const spacing = { maxWidth: '1500px' }
 export const fontSize = {}

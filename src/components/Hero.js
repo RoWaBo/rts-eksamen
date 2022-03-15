@@ -31,7 +31,7 @@ const Hero = () => {
 			font-size: 32px;
 			letter-spacing: 22px;
 			text-align: center;
-			margin-top: 0.4rem;
+			margin: 0.4rem 0;
 		}
 		.bottomLine {
 			width: 100%;

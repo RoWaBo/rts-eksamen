@@ -20,3 +20,9 @@ code {
 img {
 	display: block;
 }
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
