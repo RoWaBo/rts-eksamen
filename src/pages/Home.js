@@ -1,9 +1,11 @@
-import Article from '../components/Article'
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
+import MainOffers from '../components/MainOffers'
 
 const Home = () => {
 	return (
 		<>
-			<Article heading='welcome to the nightclub'></Article>
+			<MainOffers />
 		</>
 	)
 }

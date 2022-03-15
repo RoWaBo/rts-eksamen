@@ -14,7 +14,7 @@ const Hero = () => {
 		`./assets/bg/${heroImages[getRandomInt(0, 2)]}`
 	// === STYLE ===
 	const sectionStyle = css`
-		width: 100vw;
+		width: 100%;
 		height: 100vh;
 		background-image: url(${backgroundUrlPicker()});
 		background-position: center;

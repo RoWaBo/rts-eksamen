@@ -24,7 +24,7 @@ const Navigation = () => {
 
 	// === STYLE ===
 	const containerStyle = css`
-		width: 100vw;
+		width: 100%;
 		background: ${color.black};
 		border-color: ${color.pink};
 		border-width: 1px 0;
