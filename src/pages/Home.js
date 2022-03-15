@@ -1,11 +1,9 @@
-import Hero from '../components/Hero'
-import Navigation from '../components/Navigation'
+import Article from '../components/Article'
 
 const Home = () => {
 	return (
 		<>
-			<Hero />
-			<Navigation />
+			<Article heading='welcome to the nightclub'></Article>
 		</>
 	)
 }
