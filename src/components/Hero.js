@@ -35,7 +35,6 @@ const Hero = () => {
 		}
 		.bottomLine {
 			width: 100%;
-			height: 30px;
 			padding: 0 3rem;
 		}
 	`
