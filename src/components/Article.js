@@ -11,8 +11,16 @@ const Article = ({
 	...props
 }) => {
 	const articleStyle = css`
-		width: 100vw;
+		width: 100%;
 		padding: 4rem 0;
+		${backgroundImage &&
+		`
+			background: linear-gradient(rgb(0, 0, 0, 0.9), rgb(0, 0, 0, 0.9)), url(${backgroundImage});
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		`}
+
 		.heading {
 			padding-bottom: 3rem;
 		}
