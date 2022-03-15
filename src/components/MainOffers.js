@@ -125,7 +125,7 @@ const MainOffers = () => {
 	}
 	return (
 		<>
-			<Article heading='welcome in the nightclub' centerContent>
+			<Article centerContent>
 				<div css={mainOfferContainerStyle}>
 					{mainOffers.map((offer, i) => (
 						<motion.section

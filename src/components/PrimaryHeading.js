@@ -14,10 +14,14 @@ const PrimaryHeading = ({ children, ...props }) => {
 		text-transform: uppercase;
 		color: ${color.white};
 		font-size: 26px;
+
+		& > span {
+			color: ${color.pink};
+		}
 	`
 	const ellipsisStyle = css`
 		margin: 1rem auto;
-		width: 250px;
+		width: 200px;
 		height: 3px;
 		background: rgb(3, 2, 3);
 		background: linear-gradient(
@@ -29,7 +33,14 @@ const PrimaryHeading = ({ children, ...props }) => {
 	`
 	return (
 		<header css={headerStyle} {...props}>
-			<h1 css={headingStyle}>{children}</h1>
+			{children ? (
+				<h1 css={headingStyle}>{children}</h1>
+			) : (
+				<h1 css={headingStyle}>
+					welcome in the night<span>club</span>
+				</h1>
+			)}
+
 			<div css={ellipsisStyle} />
 		</header>
 	)
