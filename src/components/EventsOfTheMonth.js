@@ -1,10 +1,11 @@
 import axios from 'axios'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Article from './Article'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { color } from '../style/styleVariables'
+import Overlay from './Overlay'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'
@@ -14,6 +15,7 @@ import 'swiper/css/pagination'
 
 const EventsOfTheMonth = () => {
 	const [events, setEvents] = useState()
+	const [hoverItemIndex, setHoverItemIndex] = useState(null)
 
 	const dateToTime = (date) => {
 		const newDate = new Date(date)
@@ -26,16 +28,14 @@ const EventsOfTheMonth = () => {
 	const dateToShortMonth = (date) => {
 		const newDate = new Date(date)
 		const day = newDate.getDate()
-		const month = newDate.toLocaleString('da-dk', { month: 'short' })
+		const month = newDate.toLocaleString('da-dk', { month: 'short' }).replace('.', '')
 		return `${day} ${month}`
 	}
 
 	useEffect(() => {
 		if (events) return
 		;(async () => {
-			const { data } = await axios(
-				`${process.env.REACT_APP_BASE_URL}/events`
-			)
+			const { data } = await axios(`${process.env.REACT_APP_BASE_URL}/events`)
 			setEvents(data)
 		})()
 	}, [events])
@@ -58,8 +58,35 @@ const EventsOfTheMonth = () => {
 		& > span {
 			margin-right: 1rem;
 			color: ${color.grey};
+			text-transform: capitalize;
 		}
 	`
+	const btnStyle = css`
+		padding: 1rem 2rem;
+		color: ${color.grey};
+		background: ${color.pink};
+		border: none;
+		z-index: 1;
+		position: absolute;
+		top: 21%;
+		left: 42%;
+		cursor: pointer;
+	`
+	const textContainerStyle = css`
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		color: ${color.grey};
+		background: rgba(3, 2, 3, 0.7);
+		padding: 1rem 3.5rem 1rem 1rem;
+		margin-bottom: 1px;
+		line-height: 22px;
+
+		& > h2 {
+			margin-bottom: 0.5rem;
+		}
+	`
+	// SWIPER STYLE
 	const myPaginationStyle = css`
 		text-align: center;
 		width: 100%;
@@ -80,6 +107,29 @@ const EventsOfTheMonth = () => {
 			background: ${color.pink};
 		}
 	`
+	// === ANIMATIONS ===
+	const btnAnimation = {
+		initial: {
+			opacity: 0,
+			y: '-300%',
+		},
+		animate: {
+			opacity: 1,
+			y: '0%',
+			transition: { type: 'spring', damping: 18 },
+		},
+	}
+	const textContainerAnimation = {
+		initial: {
+			opacity: 0,
+			y: '100%',
+		},
+		animate: {
+			opacity: 1,
+			y: '0%',
+			transition: { type: 'spring', damping: 18 },
+		},
+	}
 	return (
 		<Article
 			heading='events of the month'
@@ -96,20 +146,46 @@ const EventsOfTheMonth = () => {
 						return `<span class="${className}"></span>`
 					},
 				}}
-				// autoplay={{
-				// 	delay: 5000,
-				// 	disableOnInteraction: true,
-				// }}
-				navigation={true}
+				autoplay={{
+					delay: 2500,
+					disableOnInteraction: true,
+				}}
 				modules={[Pagination, Autoplay]}
 				className='mySwiper'>
-				{events?.map((event) => (
+				{events?.map((event, i) => (
 					<SwiperSlide key={event.id}>
 						<motion.div
 							css={eventStyle}
 							style={{
 								backgroundImage: `url(${event.asset.url})`,
-							}}></motion.div>
+							}}
+							onHoverStart={() => setHoverItemIndex(i)}
+							onHoverEnd={() => setHoverItemIndex(null)}>
+							<AnimatePresence>
+								{hoverItemIndex === i && (
+									<>
+										<Overlay key='overlay' opacity={0.7} />
+										<motion.button
+											css={btnStyle}
+											variants={btnAnimation}
+											initial='initial'
+											animate='animate'
+											exit='initial'>
+											Book Now
+										</motion.button>
+										<motion.div
+											css={textContainerStyle}
+											variants={textContainerAnimation}
+											initial='initial'
+											animate='animate'
+											exit='initial'>
+											<h2>{event.title}</h2>
+											<p>{event.description}</p>
+										</motion.div>
+									</>
+								)}
+							</AnimatePresence>
+						</motion.div>
 						<div css={timeBarStyle}>
 							<span>{dateToShortMonth(event.date)}</span>
 							<span>{dateToTime(event.date)}</span>
