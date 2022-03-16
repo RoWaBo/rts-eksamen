@@ -3,6 +3,7 @@ import { css } from '@emotion/react'
 import EventsOfTheMonth from '../components/EventsOfTheMonth'
 import MainOffers from '../components/MainOffers'
 import NightClubGallery from '../components/NightClubGallery'
+import Testimonials from '../components/Testimonials'
 
 const Home = () => {
 	return (
@@ -10,6 +11,7 @@ const Home = () => {
 			<MainOffers />
 			<EventsOfTheMonth />
 			<NightClubGallery />
+			<Testimonials />
 		</>
 	)
 }
