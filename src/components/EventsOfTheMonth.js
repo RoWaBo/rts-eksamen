@@ -62,14 +62,14 @@ const EventsOfTheMonth = () => {
 		}
 	`
 	const btnStyle = css`
-		padding: 1rem 2rem;
+		padding: 1rem 3rem;
 		color: ${color.grey};
 		background: ${color.pink};
 		border: none;
 		z-index: 1;
 		position: absolute;
-		top: 21%;
-		left: 42%;
+		top: 20%;
+		left: 39%;
 		cursor: pointer;
 	`
 	const textContainerStyle = css`
@@ -149,6 +149,7 @@ const EventsOfTheMonth = () => {
 				autoplay={{
 					delay: 2500,
 					disableOnInteraction: true,
+					pauseOnMouseEnter: true,
 				}}
 				modules={[Pagination, Autoplay]}
 				className='mySwiper'>
