@@ -74,7 +74,7 @@ const Navigation = () => {
 			line-height: 1.1;
 			font-weight: 500;
 			text-transform: uppercase;
-			color: ${color.white};
+			color: ${color.grey};
 			padding: 12px 0;
 			font-size: 20px;
 		}

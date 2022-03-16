@@ -12,7 +12,7 @@ const PrimaryHeading = ({ children, ...props }) => {
 		font-weight: 500;
 		line-height: 1.1;
 		text-transform: uppercase;
-		color: ${color.white};
+		color: ${color.grey};
 		font-size: 26px;
 
 		& > span {
