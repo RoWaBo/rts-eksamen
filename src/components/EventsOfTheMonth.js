@@ -15,15 +15,19 @@ import 'swiper/css/pagination'
 const EventsOfTheMonth = () => {
 	const [events, setEvents] = useState()
 
-	const dateConverter = (date) => {
+	const dateToTime = (date) => {
 		const newDate = new Date(date)
-		const day = newDate.getDate()
-		const month = newDate.toLocaleString('da-dk', { month: 'short' })
 		const time = newDate.toLocaleString('en-US', {
 			hour: 'numeric',
 			hour12: true,
 		})
-		return `${day} ${month} ${time}`
+		return `${time}`
+	}
+	const dateToShortMonth = (date) => {
+		const newDate = new Date(date)
+		const day = newDate.getDate()
+		const month = newDate.toLocaleString('da-dk', { month: 'short' })
+		return `${day} ${month}`
 	}
 
 	useEffect(() => {
@@ -48,13 +52,16 @@ const EventsOfTheMonth = () => {
 	`
 	const timeBarStyle = css`
 		width: 700px;
-		padding: 0.5rem;
+		padding: 0.5rem 1rem;
 		background: ${color.pink};
+
+		& > span {
+			margin-right: 1rem;
+			color: ${color.grey};
+		}
 	`
 	const myPaginationStyle = css`
 		text-align: center;
-		transition: 0.3s opacity;
-		transform: translate3d(0, 0, 0);
 		width: 100%;
 		margin-top: 2.5rem;
 
@@ -80,15 +87,13 @@ const EventsOfTheMonth = () => {
 			centerContent>
 			<Swiper
 				slidesPerView={2}
-				// spaceBetween={30}
 				slidesPerGroup={2}
 				loop={true}
-				// loopFillGroupWithBlank={true}
 				pagination={{
 					el: '.my-pagination',
 					clickable: true,
-					renderBullet: (index, className) => {
-						return '<span class="' + className + '">' + '</span>'
+					renderBullet: (i, className) => {
+						return `<span class="${className}"></span>`
 					},
 				}}
 				// autoplay={{
@@ -106,8 +111,9 @@ const EventsOfTheMonth = () => {
 								backgroundImage: `url(${event.asset.url})`,
 							}}></motion.div>
 						<div css={timeBarStyle}>
-							{dateConverter(event.date)}
-							{event.location}
+							<span>{dateToShortMonth(event.date)}</span>
+							<span>{dateToTime(event.date)}</span>
+							<span>{event.location}</span>
 						</div>
 					</SwiperSlide>
 				))}
