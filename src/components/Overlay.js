@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 import { motion } from 'framer-motion'
 import { color } from '../style/styleVariables'
 
-const Overlay = ({ opacity, ...props }) => {
+const Overlay = ({ opacity, smallTriangles, ...props }) => {
 	const overlayStyle = css`
 		position: absolute;
 		top: 0;
@@ -17,22 +17,22 @@ const Overlay = ({ opacity, ...props }) => {
 		border-style: solid;
 
 		.rightTriangle {
-			width: 200px;
-			height: 200px;
+			width: ${smallTriangles ? '80px' : '200px'};
+			height: ${smallTriangles ? '50px' : '200px'};
 			position: absolute;
-			bottom: -97px;
-			right: -140px;
+			bottom: ${smallTriangles ? '-24px' : '-97px'};
+			right: ${smallTriangles ? '-36px' : '-140px'};
 			background: ${color.pink};
 			transform: rotate(134deg);
 			z-index: 2;
 		}
 
 		.leftTriangle {
-			width: 200px;
-			height: 200px;
+			width: ${smallTriangles ? '80px' : '200px'};
+			height: ${smallTriangles ? '50px' : '200px'};
 			position: absolute;
-			top: -97px;
-			left: -140px;
+			top: ${smallTriangles ? '-24px' : '-97px'};
+			left: ${smallTriangles ? '-36px' : '-140px'};
 			background: ${color.pink};
 			transform: rotate(134deg);
 			z-index: 2;
