@@ -106,6 +106,15 @@ const NightClubGallery = () => {
 			transition: { duration: 1 },
 		},
 	}
+	const opacityAnimation = {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+			transition: { duration: 0.4 },
+		},
+	}
 	return (
 		<>
 			<Article heading='Night club gallery' centerContent>
@@ -133,34 +142,39 @@ const NightClubGallery = () => {
 					))}
 				</motion.div>
 			</Article>
-
-			{lightboxIsVisible && (
-				<>
-					<motion.div css={lightboxStyle} />
-					<AiOutlineCloseSquare
-						css={closeIconStyle}
-						onClick={() => setLightboxIsVisible(false)}
-					/>
-					<Swiper
-						onSwiper={setSwiperControl}
-						css={swiperStyle}
-						navigation={true}
-						modules={[Navigation]}
-						// loop
-						centeredSlides
-						className='mySwiper'>
-						{gallery?.map((image, i) => (
-							<SwiperSlide key={i}>
-								<img
-									className='sliderImage'
-									src={image.asset.url}
-									alt={image.description}
-								/>
-							</SwiperSlide>
-						))}
-					</Swiper>
-				</>
-			)}
+			<AnimatePresence>
+				{lightboxIsVisible && (
+					<motion.div
+						variants={opacityAnimation}
+						initial='initial'
+						animate='animate'
+						exit='initial'>
+						<div css={lightboxStyle} />
+						<AiOutlineCloseSquare
+							css={closeIconStyle}
+							onClick={() => setLightboxIsVisible(false)}
+						/>
+						<Swiper
+							onSwiper={setSwiperControl}
+							css={swiperStyle}
+							navigation={true}
+							modules={[Navigation]}
+							// loop
+							centeredSlides
+							className='mySwiper'>
+							{gallery?.map((image, i) => (
+								<SwiperSlide key={i}>
+									<img
+										className='sliderImage'
+										src={image.asset.url}
+										alt={image.description}
+									/>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</>
 	)
 }
