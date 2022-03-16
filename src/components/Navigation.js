@@ -30,6 +30,8 @@ const Navigation = () => {
 		border-width: 1px 0;
 		border-style: solid;
 		position: sticky;
+		top: 0;
+		z-index: 3;
 		overflow: hidden;
 
 		.rightTriangle {
@@ -84,20 +86,14 @@ const Navigation = () => {
 		<div css={containerStyle}>
 			<div className='leftTriangle' />
 			<nav css={navStyle}>
-				<img
-					className='logo'
-					src='./assets/Logo.png'
-					alt='night club logo'
-				/>
+				<img className='logo' src='./assets/Logo.png' alt='night club logo' />
 				<ul className='list'>
 					{navItems.map(({ href, text }, i) => (
 						<li key={i} className='listItem'>
 							<NavLink
 								to={href}
 								className='link'
-								style={({ isActive }) =>
-									activeLinkStyleIf(isActive)
-								}>
+								style={({ isActive }) => activeLinkStyleIf(isActive)}>
 								{text}
 							</NavLink>
 						</li>
