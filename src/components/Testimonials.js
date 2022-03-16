@@ -85,7 +85,6 @@ const Testimonials = () => {
 		<Article heading='' backgroundImage='./assets/bg/footerbg.jpg' centerContent>
 			<Swiper
 				slidesPerView={1}
-				slidesPerGroup={1}
 				loop={true}
 				pagination={{
 					el: '.my-pagination-testimonials',
