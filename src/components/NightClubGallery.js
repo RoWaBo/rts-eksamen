@@ -33,13 +33,31 @@ const NightClubGallery = () => {
 		flex-wrap: wrap;
 	`
 	const overlayStyle = css``
+
+	// === ANIMATIONS ===
+	const galleryContainerAnimation = {
+		initial: {
+			opacity: 0,
+			x: -150,
+		},
+		animate: {
+			opacity: 1,
+			x: 0,
+			transition: { duration: 1 },
+		},
+	}
 	return (
 		<>
 			<motion.div css={overlayStyle} />
 			<Article heading='Night club gallery' centerContent>
-				<motion.div css={galleryContainerStyle}>
+				<motion.div
+					css={galleryContainerStyle}
+					variants={galleryContainerAnimation}
+					initial='initial'
+					whileInView='animate'>
 					{gallery?.map((image, i) => (
 						<motion.div
+							key={i}
 							css={imageStyle}
 							style={{
 								backgroundImage: `url(${image.asset.url})`,
