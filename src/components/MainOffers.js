@@ -139,7 +139,7 @@ const MainOffers = () => {
 							<AnimatePresence>
 								{hoverItemIndex === i && (
 									<>
-										<Overlay key='overlay' />
+										<Overlay key='overlay' opacity={1} />
 										<motion.div
 											key='icon'
 											className='icon'
@@ -163,13 +163,12 @@ const MainOffers = () => {
 											initial='initial'
 											animate='animate'
 											exit='exit'>
-											'Lorem ipsum dolor sit amet,
-											consectetur adipiscing elit, sed do
-											eiusmod tempor incididunt ut labore
-											et dolore magna aliqua. Ut enim ad
-											minim veniam, quis nostrud
-											exercitation ullamco laboris nisi ut
-											aliquip ex ea commodo consequat.'
+											'Lorem ipsum dolor sit amet, consectetur
+											adipiscing elit, sed do eiusmod tempor
+											incididunt ut labore et dolore magna aliqua.
+											Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip
+											ex ea commodo consequat.'
 										</motion.p>
 									</>
 								)}

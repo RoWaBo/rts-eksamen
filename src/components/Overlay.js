@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 import { motion } from 'framer-motion'
 import { color } from '../style/styleVariables'
 
-const Overlay = ({ ...props }) => {
+const Overlay = ({ opacity, ...props }) => {
 	const overlayStyle = css`
 		position: absolute;
 		top: 0;
@@ -11,7 +11,7 @@ const Overlay = ({ ...props }) => {
 		left: 0;
 		right: 0;
 		overflow: hidden;
-		background: rgba(3, 2, 3, 1);
+		background: rgba(3, 2, 3, ${opacity});
 		border-color: ${color.pink};
 		border-width: 2px 0;
 		border-style: solid;
@@ -24,6 +24,7 @@ const Overlay = ({ ...props }) => {
 			right: -140px;
 			background: ${color.pink};
 			transform: rotate(134deg);
+			z-index: 2;
 		}
 
 		.leftTriangle {
@@ -34,6 +35,7 @@ const Overlay = ({ ...props }) => {
 			left: -140px;
 			background: ${color.pink};
 			transform: rotate(134deg);
+			z-index: 2;
 		}
 	`
 	const overlayAnimation = {
