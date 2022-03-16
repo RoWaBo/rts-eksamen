@@ -140,7 +140,7 @@ const EventsOfTheMonth = () => {
 				slidesPerGroup={2}
 				loop={true}
 				pagination={{
-					el: '.my-pagination',
+					el: '.my-pagination_events',
 					clickable: true,
 					renderBullet: (i, className) => {
 						return `<span class="${className}"></span>`
@@ -195,7 +195,7 @@ const EventsOfTheMonth = () => {
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<div className='my-pagination' css={myPaginationStyle} />
+			<div className='my-pagination_events' css={myPaginationStyle} />
 		</Article>
 	)
 }
