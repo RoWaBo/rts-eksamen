@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Navigation from './components/Navigation'
 import Wrapper from './components/Wrapper'
 import Contact from './pages/Contact'
+import BookTable from './pages/BookTable'
 
 function App() {
 	const { pathname } = useLocation()
@@ -16,6 +17,7 @@ function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='*' element={<Home />} />
 					<Route path='/contact' element={<Contact />} />
+					<Route path='/booktable' element={<BookTable />} />
 				</Routes>
 			</Wrapper>
 		</>
