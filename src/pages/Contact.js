@@ -41,6 +41,7 @@ const Contact = () => {
 		flex: 1;
 	`
 	const sectionStyle = css`
+		position: relative;
 		flex: 1;
 		background: ${color.pink};
 		color: ${color.grey};
@@ -65,6 +66,16 @@ const Contact = () => {
 			min-width: 1.6rem;
 			min-height: 1.6rem;
 		}
+	`
+	const triangleStyle = css`
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translate(-50%);
+		background: ${color.pink};
+		transform: rotate(134deg);
 	`
 	return (
 		<>
@@ -93,6 +104,7 @@ const Contact = () => {
 							<p>www.Hsoft.com</p>
 						</div>
 					</div>
+					<div css={triangleStyle} />
 				</section>
 			</div>
 		</>
