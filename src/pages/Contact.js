@@ -6,7 +6,6 @@ import { color, spacing } from '../style/styleVariables'
 import { useForm } from 'react-hook-form'
 import PrimaryButton from '../components/PrimaryButton'
 import Message from '../components/Message'
-import { AnimatePresence } from 'framer-motion'
 import axios from 'axios'
 import { ImLocation, ImMobile } from 'react-icons/im'
 import { GoMail } from 'react-icons/go'
@@ -24,16 +23,11 @@ const Contact = () => {
 		clearErrors,
 	} = useForm()
 
-	const onSubmit = async ({ name, email, website, comment }) => {
+	const onSubmit = async (form) => {
 		try {
 			const res = await axios.post(
-				`${process.env.REACT_APP_BASE_URL}/contact_message`,
-				{
-					name,
-					email,
-					website,
-					comment,
-				}
+				`${process.env.REACT_APP_BASE_URL}/contact_messages`,
+				form
 			)
 			if (res.status === 201) setSuccessMessage(`Your comment has been sent!`)
 		} catch {
@@ -47,9 +41,6 @@ const Contact = () => {
 		margin: 3rem auto;
 		display: flex;
 		gap: 2rem;
-	`
-	const FormStyle = css`
-		flex: 1;
 	`
 	const sectionStyle = css`
 		margin-top: 1rem;
@@ -70,7 +61,7 @@ const Contact = () => {
 	`
 	const rightDivStyle = css``
 	const infoItemStyle = css`
-		width: 266px;
+		max-width: 266px;
 		display: flex;
 		margin-bottom: 1.5rem;
 
@@ -91,6 +82,10 @@ const Contact = () => {
 		transform: rotate(134deg);
 	`
 	// FORM STYLE
+	const FormStyle = css`
+		flex: 1;
+		display: grid;
+	`
 	const inputStyle = css`
 		margin: 1rem 0;
 	`
@@ -100,6 +95,7 @@ const Contact = () => {
 	`
 	const submitBtnStyle = css`
 		margin: 1rem 0;
+		justify-self: flex-end;
 	`
 	return (
 		<>

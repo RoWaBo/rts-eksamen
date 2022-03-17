@@ -92,7 +92,7 @@ const MailSubscribe = () => {
 			</header>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
-					type='email'
+					type='text'
 					placeholder='Enter Your Email'
 					{...register('email', {
 						required: 'Please enter your email',
