@@ -5,7 +5,7 @@ import { color } from '../style/styleVariables'
 
 const FieldRHF = forwardRef(({ errorMessage, ...props }, ref) => {
 	// === STYLING ===
-	const errorColor = 'rgb(239 68 68)'
+	const errorColor = color.pink
 
 	const input = css`
 		outline: none;

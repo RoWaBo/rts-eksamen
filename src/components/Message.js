@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 /** @jsxImportSource @emotion/react */
 import { motion } from 'framer-motion'
+import { color } from '../style/styleVariables'
 
 const Message = ({ children, error, success, ...props }) => {
 	const messageStyle = css`
@@ -9,7 +10,7 @@ const Message = ({ children, error, success, ...props }) => {
 	`
 	const containerStyle = css`
 		background: #9ca3af;
-		${error && 'background: rgb(239 68 68 / 60%);'}
+		${error && `background: ${color.pink};`}
 		${success && 'background: #22c55e;'}
 		border-radius: 10px;
 		padding: 0.5rem 1rem;
