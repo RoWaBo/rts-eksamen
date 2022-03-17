@@ -7,8 +7,10 @@ import { useForm } from 'react-hook-form'
 import PrimaryButton from './PrimaryButton'
 import Message from './Message'
 import { AnimatePresence } from 'framer-motion'
+import axios from 'axios'
 
 const MailSubscribe = () => {
+	const [successMessage, setSuccessMessage] = useState()
 	const {
 		register,
 		handleSubmit,
@@ -16,8 +18,23 @@ const MailSubscribe = () => {
 		setError,
 		clearErrors,
 	} = useForm()
+
 	const mailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-	const onSubmit = (data) => console.log(data)
+
+	const onSubmit = async (form) => {
+		try {
+			const res = await axios.post(
+				`${process.env.REACT_APP_BASE_URL}/newsletters`,
+				{
+					email: form.email,
+				}
+			)
+			if (res.status === 201)
+				setSuccessMessage(`${res.data.email} is now subscribed!`)
+		} catch {
+			setError('nightClubApi', { message: 'Something went wrong' })
+		}
+	}
 
 	// === STYLE ===
 	const sectionStyle = css`
@@ -76,22 +93,26 @@ const MailSubscribe = () => {
 			</header>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
-					type='mail'
+					type='email'
 					placeholder='Enter Your Email'
-					{...register('mail', {
-						required: 'Please enter your mail',
+					{...register('email', {
+						required: 'Please enter your email',
 						pattern: mailValidation,
 					})}
-					onChange={() => clearErrors()}
+					onChange={() => (clearErrors(), setSuccessMessage(null))}
 				/>
 				<PrimaryButton>subscribe</PrimaryButton>
 				<AnimatePresence>
-					{errors.mail && errors.mail.type === 'required' && (
-						<Message error>{errors.mail.message}</Message>
+					{errors.email && errors.email.type === 'required' && (
+						<Message error>{errors.email.message}</Message>
 					)}
-					{errors.mail && errors.mail.type === 'pattern' && (
+					{errors.email && errors.email.type === 'pattern' && (
 						<Message error>Please write a valid email</Message>
 					)}
+					{errors.nightClubApi && (
+						<Message error>{errors.nightClubApi.message}</Message>
+					)}
+					{successMessage && <Message success>{successMessage}</Message>}
 				</AnimatePresence>
 			</form>
 		</section>
