@@ -47,6 +47,7 @@ const NightClubGallery = () => {
 		background-size: cover;
 		position: relative;
 		overflow: hidden;
+		cursor: pointer;
 	`
 	const galleryContainerStyle = css`
 		display: flex;

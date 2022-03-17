@@ -84,6 +84,9 @@ const EventsOfTheMonth = () => {
 
 		& > h2 {
 			margin-bottom: 0.5rem;
+			text-transform: uppercase;
+			font-size: 22px;
+			font-weight: 400;
 		}
 	`
 	// SWIPER STYLE
