@@ -11,6 +11,8 @@ import axios from 'axios'
 import { ImLocation, ImMobile } from 'react-icons/im'
 import { GoMail } from 'react-icons/go'
 import { BiWorld } from 'react-icons/bi'
+import FieldRHF from '../components/FieldRHF'
+import TextAreaRHF from '../components/TextAreaRHF'
 
 const Contact = () => {
 	const [successMessage, setSuccessMessage] = useState()
@@ -22,27 +24,38 @@ const Contact = () => {
 		clearErrors,
 	} = useForm()
 
-	const mailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-
-	const onSubmit = async (form) => {
-		console.log(form)
+	const onSubmit = async ({ name, email, website, comment }) => {
 		try {
-		} catch {}
+			const res = await axios.post(
+				`${process.env.REACT_APP_BASE_URL}/contact_message`,
+				{
+					name,
+					email,
+					website,
+					comment,
+				}
+			)
+			if (res.status === 201) setSuccessMessage(`Your comment has been sent!`)
+		} catch {
+			setError('nightClubApi', { message: 'Something went wrong' })
+		}
 	}
 
 	// === STYLE ===
 	const wrapperStyle = css`
 		max-width: ${spacing.maxWidth};
-		margin: 4rem auto;
+		margin: 3rem auto;
 		display: flex;
-		gap: 1rem;
+		gap: 2rem;
 	`
 	const FormStyle = css`
 		flex: 1;
 	`
 	const sectionStyle = css`
+		margin-top: 1rem;
 		position: relative;
 		flex: 1;
+		height: fit-content;
 		background: ${color.pink};
 		color: ${color.grey};
 		font-size: 18px;
@@ -77,11 +90,72 @@ const Contact = () => {
 		background: ${color.pink};
 		transform: rotate(134deg);
 	`
+	// FORM STYLE
+	const inputStyle = css`
+		margin: 1rem 0;
+	`
+	const textAreaStyle = css`
+		height: 300px;
+		margin: 1rem 0;
+	`
+	const submitBtnStyle = css`
+		margin: 1rem 0;
+	`
 	return (
 		<>
 			<Article heading='contact us' backgroundImage='./assets/bg/footerbg.jpg' />
 			<div css={wrapperStyle}>
-				<form onSubmit={handleSubmit(onSubmit)} css={FormStyle}></form>
+				<form onSubmit={handleSubmit(onSubmit)} css={FormStyle}>
+					<FieldRHF
+						css={inputStyle}
+						placeholder='Your Name'
+						type='text'
+						errorMessage={errors.name?.message}
+						onChange={() => clearErrors()}
+						{...register('name', {
+							required: 'name is required',
+						})}
+					/>
+					<FieldRHF
+						css={inputStyle}
+						placeholder='Your Email'
+						type='email'
+						errorMessage={errors.email?.message}
+						onChange={() => clearErrors()}
+						{...register('email', {
+							required: 'email is required',
+						})}
+					/>
+					<FieldRHF
+						css={inputStyle}
+						placeholder='Your Website'
+						type='text'
+						errorMessage={errors.website?.message}
+						onChange={() => clearErrors()}
+						{...register('website', {
+							required: 'website is required',
+						})}
+					/>
+					<TextAreaRHF
+						css={textAreaStyle}
+						placeholder='Your Comment'
+						errorMessage={errors.comment?.message}
+						onChange={() => clearErrors()}
+						{...register('comment', {
+							required: 'comment is required',
+						})}
+					/>
+					{errors.nightClubApi && (
+						<Message error>{errors.nightClubApi.message}</Message>
+					)}
+					{successMessage && <Message success>{successMessage}</Message>}
+					<PrimaryButton
+						type='submit'
+						css={submitBtnStyle}
+						onClick={() => clearErrors()}>
+						submit
+					</PrimaryButton>
+				</form>
 				<section css={sectionStyle}>
 					<div css={leftDivStyle}>
 						<div css={infoItemStyle}>
