@@ -8,7 +8,6 @@ const TextAreaRHF = forwardRef(({ errorMessage, ...props }, ref) => {
 	const errorColor = 'rgb(239 68 68)'
 
 	const input = css`
-		display: block;
 		outline: none;
 		width: 100%;
 		background: ${color.black};

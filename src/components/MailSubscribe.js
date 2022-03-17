@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import Article from './Article'
+import { useState } from 'react'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { color } from '../style/styleVariables'

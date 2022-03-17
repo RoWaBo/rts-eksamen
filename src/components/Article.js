@@ -9,14 +9,14 @@ const Article = ({ heading, backgroundImage, centerContent, children, ...props }
 		padding: 4rem 0;
 		${backgroundImage &&
 		`
-			background: linear-gradient(rgb(0, 0, 0, 0.9), rgb(0, 0, 0, 0.9)), url(${backgroundImage});
+			background: linear-gradient(rgb(0, 0, 0, 0.85), rgb(0, 0, 0, 0.85)), url(${backgroundImage});
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
 		`}
 
 		.heading {
-			padding-bottom: 3rem;
+			${children && 'padding-bottom: 3rem;'}
 		}
 		.container {
 			${centerContent && `max-width:${spacing.maxWidth}; margin: 0 auto`}
