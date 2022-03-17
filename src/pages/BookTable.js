@@ -91,7 +91,8 @@ const BookTable = () => {
 	// === STYLE ===
 	const wrapperStyle = css`
 		max-width: ${spacing.maxWidth};
-		margin: 4rem auto;
+		margin: 0 auto;
+		padding: 4rem 0;
 	`
 	const tableListStyle = css`
 		display: flex;

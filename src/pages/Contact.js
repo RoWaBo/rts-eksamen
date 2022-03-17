@@ -38,7 +38,8 @@ const Contact = () => {
 	// === STYLE ===
 	const wrapperStyle = css`
 		max-width: ${spacing.maxWidth};
-		margin: 3rem auto;
+		margin: 0 auto;
+		padding: 3rem 0;
 		display: flex;
 		gap: 2rem;
 	`

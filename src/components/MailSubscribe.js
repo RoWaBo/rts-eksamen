@@ -18,7 +18,7 @@ const MailSubscribe = () => {
 		clearErrors,
 	} = useForm()
 
-	const mailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+	const mailValidation = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\w{2,3})+$/
 
 	const onSubmit = async (form) => {
 		try {
@@ -98,7 +98,10 @@ const MailSubscribe = () => {
 						required: 'Please enter your email',
 						pattern: mailValidation,
 					})}
-					onChange={() => (clearErrors(), setSuccessMessage(null))}
+					onChange={() => {
+						clearErrors()
+						setSuccessMessage(null)
+					}}
 				/>
 				<PrimaryButton>subscribe</PrimaryButton>
 				<AnimatePresence>

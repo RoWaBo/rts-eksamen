@@ -105,12 +105,14 @@ const Testimonials = () => {
 								<a
 									href={testimonial.facebook}
 									target='_blank'
+									rel='noreferrer'
 									css={someIconStyle}>
 									<FaFacebookF />
 								</a>
 								<a
 									href={testimonial.twitter}
 									target='_blank'
+									rel='noreferrer'
 									css={someIconStyle}>
 									<FaTwitter />
 								</a>

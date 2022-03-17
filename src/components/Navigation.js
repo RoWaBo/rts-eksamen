@@ -6,7 +6,6 @@ import { color, spacing } from '../style/styleVariables'
 const Navigation = () => {
 	const navItems = [
 		{ href: '/', text: 'home' },
-		{ href: '/blog', text: 'blog' },
 		{ href: '/booktable', text: 'book table' },
 		{ href: '/contact', text: 'contact us' },
 	]

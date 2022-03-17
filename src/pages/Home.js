@@ -1,5 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
 import EventsOfTheMonth from '../components/EventsOfTheMonth'
 import MailSubscribe from '../components/MailSubscribe'
 import MainOffers from '../components/MainOffers'
