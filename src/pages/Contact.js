@@ -23,6 +23,9 @@ const Contact = () => {
 		clearErrors,
 	} = useForm()
 
+	const urlValidation =
+		/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
+
 	const onSubmit = async (form) => {
 		try {
 			const res = await axios.post(
@@ -131,6 +134,10 @@ const Contact = () => {
 						onChange={() => clearErrors()}
 						{...register('website', {
 							required: 'website is required',
+							pattern: {
+								value: urlValidation,
+								message: 'must be a valid website',
+							},
 						})}
 					/>
 					<TextAreaRHF
