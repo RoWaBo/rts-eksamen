@@ -22,6 +22,8 @@ const BookTable = () => {
 		setValue,
 	} = useForm()
 
+	const phoneValidation = /^(\+?\d{1,3}[- ]?)?\d{8}$/
+
 	// === TABLES
 	const smallTable = {
 		imgUrl: './assets/table/table_1.png',
@@ -260,6 +262,10 @@ const BookTable = () => {
 								onChange={() => clearErrors()}
 								{...register('contactNumber', {
 									required: 'contact number is required',
+									pattern: {
+										value: phoneValidation,
+										message: 'contact number is not valid',
+									},
 								})}
 							/>
 						</div>
