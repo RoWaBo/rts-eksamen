@@ -52,12 +52,12 @@ const Testimonials = () => {
 	const someIconStyle = css`
 		width: 47px;
 		height: 47px;
-		border: 2px solid ${color.white};
+		border: 2px solid ${color.grey};
 		display: grid;
 		place-content: center;
 
 		& > svg {
-			color: ${color.white};
+			color: ${color.grey};
 		}
 	`
 	// SWIPER STYLE
