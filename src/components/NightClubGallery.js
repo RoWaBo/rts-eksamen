@@ -85,15 +85,19 @@ const NightClubGallery = () => {
 			justify-content: center;
 			align-items: center;
 		}
-		/* .sliderImage {
-
-		} */
-		/* .swiper-button-prev {
-			
+		.swiper-button-next,
+		.swiper-button-prev {
+			border: 2px solid ${color.grey};
+			width: 30px;
+			height: 30px;
+			margin: 0 9%;
+			border-radius: 2px;
 		}
-		.swiper-button-next {
-			
-		} */
+		.swiper-button-next::after,
+		.swiper-button-prev::after {
+			font-size: 0.8rem;
+			color: ${color.grey};
+		}
 	`
 	// === ANIMATIONS ===
 	const galleryContainerAnimation = {
