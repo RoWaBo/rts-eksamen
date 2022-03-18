@@ -14,6 +14,7 @@ const TextAreaRHF = forwardRef(({ errorMessage, ...props }, ref) => {
 		padding: 1rem;
 		border: 1px solid rgb(255, 255, 255, 0.25);
 		color: ${color.grey};
+		resize: none;
 	`
 	const inputError = css`
 		border: 1px solid ${errorColor};
