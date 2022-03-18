@@ -236,6 +236,8 @@ const BookTable = () => {
 								css={inputStyle}
 								placeholder='Number of Guests'
 								type='number'
+								min={1}
+								max={8}
 								errorMessage={errors.numberOfGuests?.message}
 								onChange={() => clearErrors()}
 								{...register('numberOfGuests', {
