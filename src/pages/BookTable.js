@@ -247,7 +247,7 @@ const BookTable = () => {
 										message: 'number of guests is required',
 									},
 									max: {
-										value: selectedTable ? selectedTable : 8,
+										value: selectedTable?.seats,
 										message: `selected table can't seat that number of guests`,
 									},
 								})}
