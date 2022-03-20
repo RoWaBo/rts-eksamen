@@ -2,7 +2,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Hero from './components/Hero'
 import Navigation from './components/Navigation'
-import Wrapper from './components/Wrapper'
+import MainWrapper from './components/MainWrapper'
 import Contact from './pages/Contact'
 import BookTable from './pages/BookTable'
 import Footer from './components/Footer'
@@ -13,7 +13,7 @@ function App() {
 		<>
 			{pathname === '/' && <Hero />}
 			<Navigation />
-			<Wrapper>
+			<MainWrapper>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='*' element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
 					<Route path='/booktable' element={<BookTable />} />
 				</Routes>
 				<Footer />
-			</Wrapper>
+			</MainWrapper>
 		</>
 	)
 }

@@ -6,9 +6,9 @@ const Wrapper = ({ children, ...props }) => {
 		background-image: url('./assets/bg/pattern_bg.jpg');
 	`
 	return (
-		<div css={wrapperStyle} {...props}>
+		<main css={wrapperStyle} {...props}>
 			{children}
-		</div>
+		</main>
 	)
 }
 
