@@ -16,7 +16,7 @@ const Overlay = ({ opacity, smallTriangles, ...props }) => {
 		border-width: 2px 0;
 		border-style: solid;
 
-		.rightTriangle {
+		& .rightTriangle {
 			width: ${smallTriangles ? '80px' : '200px'};
 			height: ${smallTriangles ? '50px' : '200px'};
 			position: absolute;
@@ -27,7 +27,7 @@ const Overlay = ({ opacity, smallTriangles, ...props }) => {
 			z-index: 2;
 		}
 
-		.leftTriangle {
+		& .leftTriangle {
 			width: ${smallTriangles ? '80px' : '200px'};
 			height: ${smallTriangles ? '50px' : '200px'};
 			position: absolute;

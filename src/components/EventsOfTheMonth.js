@@ -99,14 +99,14 @@ const EventsOfTheMonth = () => {
 			margin-left: 0.5rem;
 		}
 
-		.swiper-pagination-bullet {
+		& .swiper-pagination-bullet {
 			width: 20px;
 			height: 20px;
 			border-radius: 0;
 			background: ${color.grey};
 			opacity: 1;
 		}
-		.swiper-pagination-bullet-active {
+		& .swiper-pagination-bullet-active {
 			background: ${color.pink};
 		}
 	`

@@ -80,21 +80,21 @@ const NightClubGallery = () => {
 		left: 0;
 		right: 0;
 		z-index: 6;
-		.swiper-slide {
+		& .swiper-slide {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
-		.swiper-button-next,
-		.swiper-button-prev {
+		& .swiper-button-next,
+		& .swiper-button-prev {
 			border: 2px solid ${color.grey};
 			width: 30px;
 			height: 30px;
 			margin: 0 9%;
 			border-radius: 2px;
 		}
-		.swiper-button-next::after,
-		.swiper-button-prev::after {
+		& .swiper-button-next::after,
+		& .swiper-button-prev::after {
 			font-size: 0.8rem;
 			color: ${color.grey};
 		}

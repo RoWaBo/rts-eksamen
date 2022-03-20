@@ -15,10 +15,10 @@ const Article = ({ heading, backgroundImage, centerContent, children, ...props }
 			background-size: cover;
 		`}
 
-		.heading {
+		& .heading {
 			${children && 'padding-bottom: 3rem;'}
 		}
-		.container {
+		& .container {
 			${centerContent && `max-width:${spacing.maxWidth}; margin: 0 auto`}
 		}
 	`

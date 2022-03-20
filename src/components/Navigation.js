@@ -33,7 +33,7 @@ const Navigation = () => {
 		z-index: 3;
 		overflow: hidden;
 
-		.rightTriangle {
+		& .rightTriangle {
 			width: 80px;
 			height: 50px;
 			position: absolute;
@@ -43,7 +43,7 @@ const Navigation = () => {
 			transform: rotate(134deg);
 		}
 
-		.leftTriangle {
+		& .leftTriangle {
 			width: 80px;
 			height: 50px;
 			position: absolute;
@@ -60,10 +60,11 @@ const Navigation = () => {
 		max-width: ${spacing.maxWidth};
 		margin: 0 auto;
 		display: flex;
-		.logo {
+
+		& .logo {
 			margin-right: auto;
 		}
-		.list {
+		& .list {
 			display: flex;
 			align-items: center;
 
@@ -71,7 +72,7 @@ const Navigation = () => {
 				margin-left: 3rem;
 			}
 		}
-		.link {
+		& .link {
 			line-height: 1.1;
 			font-weight: 500;
 			text-transform: uppercase;

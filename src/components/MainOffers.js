@@ -40,7 +40,7 @@ const MainOffers = () => {
 		display: grid;
 		place-content: center;
 
-		.icon {
+		& .icon {
 			width: 125px;
 			height: 135px;
 			border: 4px solid ${color.pink};
@@ -56,14 +56,14 @@ const MainOffers = () => {
 				height: 60px;
 			}
 		}
-		.mainOfferHeading {
+		& .mainOfferHeading {
 			text-align: center;
 			font-size: 24px;
 			color: ${color.grey};
 			margin: 2rem 0 1.5rem;
 			z-index: 1;
 		}
-		.description {
+		& .description {
 			max-width: 370px;
 			color: ${color.grey};
 			font-size: 16px;

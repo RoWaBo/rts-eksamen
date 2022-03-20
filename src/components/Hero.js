@@ -10,8 +10,7 @@ const Hero = () => {
 		max = Math.floor(max)
 		return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
 	}
-	const backgroundUrlPicker = () =>
-		`./assets/bg/${heroImages[getRandomInt(0, 2)]}`
+	const backgroundUrlPicker = () => `./assets/bg/${heroImages[getRandomInt(0, 2)]}`
 	// === STYLE ===
 	const sectionStyle = css`
 		width: 100%;
@@ -23,7 +22,7 @@ const Hero = () => {
 		display: grid;
 		place-content: center;
 
-		.slogan {
+		& .slogan {
 			line-height: 1.1;
 			font-weight: 100;
 			text-transform: uppercase;
@@ -33,7 +32,7 @@ const Hero = () => {
 			text-align: center;
 			margin: 0.4rem 0;
 		}
-		.bottomLine {
+		& .bottomLine {
 			width: 100%;
 			padding: 0 3rem;
 		}
