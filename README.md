@@ -64,7 +64,7 @@ Alt i alt har jeg ikke været i tvivl om hvordan, jeg skulle kode projektet. Ani
 
 ### En beskrivelse af særlige punkter til bedømmelse
 
-Nedenfor fremhæver jeg to dokumenter: MainOffers.js og BookTable.js
+Nedenfor fremhæver jeg to dokumenter: [MainOffers.js](https://github.com/rts-cmk-wu05/eksamen-wu05-RoWaBo/blob/master/src/components/MainOffers.js) og [BookTable.js](https://github.com/rts-cmk-wu05/eksamen-wu05-RoWaBo/blob/master/src/pages/BookTable.js)
 
 #### **Animationsstyring via conditional rendering**
 
@@ -95,7 +95,7 @@ const headingAnimation = {
 
 Dette er smart fordi animationer kan styres med conditional rendering. Jeg gemmer sektionens index nummer i en state på hover. Animationskomponenter bliver renderet hvis sektionens index er ens med det gemte state index. Med \<AnimatePresence> eksekeveres komponentets exit animation før det bliver unmounted:
 
-### **OBS!** se hele komponentet under src/components/MainOffers.js
+### **OBS!** se hele komponentet under src/components/[MainOffers.js](https://github.com/rts-cmk-wu05/eksamen-wu05-RoWaBo/blob/master/src/components/MainOffers.js)
 
 ```js
 // SAVING INDEX IN STATE
@@ -153,7 +153,7 @@ const [hoverItemIndex, setHoverItemIndex] = useState(null)
 
 ### **Book Table med ekstra validering af bordpladser og antal gæster**
 
-### **OBS!** se hele komponentet under src/pages/BookTable.js
+### **OBS!** se hele komponentet under src/pages/[BookTable.js](https://github.com/rts-cmk-wu05/eksamen-wu05-RoWaBo/blob/master/src/pages/BookTable.js)
 
 Jeg erklærer en const med et map for hver bordvariation:
 
@@ -222,4 +222,3 @@ Under form validering refererer jeg til **selectedTable staten** og smider en fe
 	})}
 />
 ```
-
