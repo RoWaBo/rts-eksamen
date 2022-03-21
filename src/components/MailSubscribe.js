@@ -7,6 +7,7 @@ import PrimaryButton from './PrimaryButton'
 import Message from './Message'
 import { AnimatePresence } from 'framer-motion'
 import axios from 'axios'
+import Toast from './Toast'
 
 const MailSubscribe = () => {
 	const [successMessage, setSuccessMessage] = useState()
@@ -29,8 +30,10 @@ const MailSubscribe = () => {
 					email: form.email,
 				}
 			)
-			if (res.status === 201)
+			if (res.status === 201) {
 				setSuccessMessage(`${res.data.email} is now subscribed!`)
+				setTimeout(() => setSuccessMessage(null), 5000)
+			}
 		} catch {
 			setError('nightClubApi', { message: 'Something went wrong' })
 		}
@@ -115,7 +118,7 @@ const MailSubscribe = () => {
 					{errors.nightClubApi && (
 						<Message error>{errors.nightClubApi.message}</Message>
 					)}
-					{successMessage && <Message success>{successMessage}</Message>}
+					{successMessage && <Toast>{successMessage}</Toast>}
 				</AnimatePresence>
 			</form>
 		</section>

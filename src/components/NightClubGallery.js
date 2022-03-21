@@ -61,7 +61,7 @@ const NightClubGallery = () => {
 		display: flex;
 		flex-wrap: wrap;
 	`
-	const lightboxStyle = css`
+	const lightboxOverlayStyle = css`
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -116,7 +116,7 @@ const NightClubGallery = () => {
 		animate: {
 			opacity: 1,
 			x: 0,
-			transition: { duration: 1.5 },
+			transition: { duration: 2 },
 		},
 	}
 	const opacityAnimation = {
@@ -131,12 +131,12 @@ const NightClubGallery = () => {
 	const slideInAnimation = {
 		initial: {
 			opacity: 0,
-			x: -80,
+			x: -50,
 		},
 		animate: {
 			opacity: 1,
 			x: 0,
-			transition: { duration: 1.5 },
+			transition: { duration: 2 },
 		},
 	}
 	return (
@@ -174,7 +174,7 @@ const NightClubGallery = () => {
 						initial='initial'
 						animate='animate'
 						exit='initial'>
-						<div css={lightboxStyle} />
+						<div css={lightboxOverlayStyle} />
 						<AiOutlineCloseSquare
 							css={closeIconStyle}
 							onClick={disableLightBox}

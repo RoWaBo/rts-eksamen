@@ -12,6 +12,8 @@ import { GoMail } from 'react-icons/go'
 import { BiWorld } from 'react-icons/bi'
 import FieldRHF from '../components/FieldRHF'
 import TextAreaRHF from '../components/TextAreaRHF'
+import Toast from '../components/Toast'
+import { AnimatePresence } from 'framer-motion'
 
 const Contact = () => {
 	const [successMessage, setSuccessMessage] = useState()
@@ -33,7 +35,10 @@ const Contact = () => {
 				`${process.env.REACT_APP_BASE_URL}/contact_messages`,
 				form
 			)
-			if (res.status === 201) setSuccessMessage(`Your comment has been sent!`)
+			if (res.status === 201) {
+				setSuccessMessage(`Your comment has been sent!`)
+				setTimeout(() => setSuccessMessage(null), 5000)
+			}
 		} catch {
 			setError('nightClubApi', { message: 'Something went wrong' })
 		}
@@ -150,10 +155,12 @@ const Contact = () => {
 							required: 'comment is required',
 						})}
 					/>
-					{errors.nightClubApi && (
-						<Message error>{errors.nightClubApi.message}</Message>
-					)}
-					{successMessage && <Message success>{successMessage}</Message>}
+					<AnimatePresence>
+						{errors.nightClubApi && (
+							<Message error>{errors.nightClubApi.message}</Message>
+						)}
+						{successMessage && <Toast>{successMessage}</Toast>}
+					</AnimatePresence>
 					<PrimaryButton
 						type='submit'
 						css={submitBtnStyle}

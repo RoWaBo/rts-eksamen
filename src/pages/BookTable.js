@@ -9,6 +9,8 @@ import Message from '../components/Message'
 import axios from 'axios'
 import FieldRHF from '../components/FieldRHF'
 import TextAreaRHF from '../components/TextAreaRHF'
+import Toast from '../components/Toast'
+import { AnimatePresence } from 'framer-motion'
 
 const BookTable = () => {
 	const [successMessage, setSuccessMessage] = useState()
@@ -85,7 +87,10 @@ const BookTable = () => {
 				newReservation
 			)
 
-			if (res.status === 201) setSuccessMessage(`Your reservation has been made!`)
+			if (res.status === 201) {
+				setSuccessMessage(`Your reservation has been made!`)
+				setTimeout(() => setSuccessMessage(null), 5000)
+			}
 		} catch {
 			setError('nightClubApi', { message: 'Something went wrong' })
 		}
@@ -279,10 +284,12 @@ const BookTable = () => {
 							required: 'comment is required',
 						})}
 					/>
-					{errors.nightClubApi && (
-						<Message error>{errors.nightClubApi.message}</Message>
-					)}
-					{successMessage && <Message success>{successMessage}</Message>}
+					<AnimatePresence>
+						{errors.nightClubApi && (
+							<Message error>{errors.nightClubApi.message}</Message>
+						)}
+						{successMessage && <Toast>{successMessage}</Toast>}
+					</AnimatePresence>
 					<PrimaryButton
 						type='submit'
 						css={submitBtnStyle}
