@@ -6,9 +6,15 @@ import MainWrapper from './components/MainWrapper'
 import Contact from './pages/Contact'
 import BookTable from './pages/BookTable'
 import Footer from './components/Footer'
+import { useEffect } from 'react'
 
 function App() {
 	const { pathname } = useLocation()
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [pathname])
+
 	return (
 		<>
 			{pathname === '/' && <Hero />}
