@@ -37,7 +37,7 @@ const Contact = () => {
 			)
 			if (res.status === 201) {
 				setSuccessMessage(`Your comment has been sent!`)
-				setTimeout(() => setSuccessMessage(null), 5000)
+				setTimeout(() => setSuccessMessage(null), 3000)
 			}
 		} catch {
 			setError('nightClubApi', { message: 'Something went wrong' })

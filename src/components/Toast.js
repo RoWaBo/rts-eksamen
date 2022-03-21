@@ -22,7 +22,7 @@ const Toast = ({ children, ...props }) => {
 	const toastAnimation = {
 		initial: {
 			opacity: 0,
-			y: '100vh',
+			y: '50vh',
 		},
 		animate: {
 			opacity: 1,
@@ -38,7 +38,7 @@ const Toast = ({ children, ...props }) => {
 			initial='initial'
 			animate='animate'
 			exit='initial'
-			transition={{ duration: 0.5 }}>
+			transition={{ duration: 0.5, type: 'spring', stiffness: 40 }}>
 			<p css={ToastStyle}>{children}</p>
 		</motion.div>
 	)

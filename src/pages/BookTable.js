@@ -89,7 +89,7 @@ const BookTable = () => {
 
 			if (res.status === 201) {
 				setSuccessMessage(`Your reservation has been made!`)
-				setTimeout(() => setSuccessMessage(null), 5000)
+				setTimeout(() => setSuccessMessage(null), 3000)
 			}
 		} catch {
 			setError('nightClubApi', { message: 'Something went wrong' })
