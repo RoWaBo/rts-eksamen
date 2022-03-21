@@ -44,6 +44,8 @@ const NightClubGallery = () => {
 		document.body.style.overflow = 'unset'
 	}
 
+	const isEven = (index) => (index % 2 === 0 ? true : false)
+
 	// === STYLE ===
 	const imageStyle = css`
 		width: 200px;
@@ -114,7 +116,7 @@ const NightClubGallery = () => {
 		animate: {
 			opacity: 1,
 			x: 0,
-			transition: { duration: 1 },
+			transition: { duration: 1.5 },
 		},
 	}
 	const opacityAnimation = {
@@ -123,7 +125,18 @@ const NightClubGallery = () => {
 		},
 		animate: {
 			opacity: 1,
-			transition: { duration: 0.4 },
+			transition: { duration: 0.5 },
+		},
+	}
+	const slideInAnimation = {
+		initial: {
+			opacity: 0,
+			x: -80,
+		},
+		animate: {
+			opacity: 1,
+			x: 0,
+			transition: { duration: 1.5 },
 		},
 	}
 	return (
@@ -141,6 +154,7 @@ const NightClubGallery = () => {
 							style={{
 								backgroundImage: `url(${image.asset.url})`,
 							}}
+							variants={isEven(i) ? slideInAnimation : opacityAnimation}
 							onHoverStart={() => setHoverItemIndex(i)}
 							onHoverEnd={() => setHoverItemIndex(null)}
 							onTap={() => enableLightBox(i)}>
@@ -170,7 +184,6 @@ const NightClubGallery = () => {
 							css={swiperStyle}
 							navigation={true}
 							modules={[Navigation]}
-							// loop
 							centeredSlides
 							className='mySwiper'>
 							{gallery?.map((image, i) => (
