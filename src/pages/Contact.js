@@ -86,8 +86,9 @@ const Contact = () => {
 		height: 20px;
 		position: absolute;
 		bottom: -10px;
-		left: 50%;
-		transform: translate(-50%);
+		left: 0;
+		right: 0;
+		margin: 0 auto;
 		background: ${color.pink};
 		transform: rotate(134deg);
 	`
@@ -173,7 +174,7 @@ const Contact = () => {
 						<div css={infoItemStyle}>
 							<ImLocation />
 							<p>
-								04, A Agroha Nagar, Agra Mumbai National Highway No. 3,{' '}
+								04, A Agroha Nagar, Agra Mumbai National Highway No. 3,
 								<br /> Denwas # 455001 India.
 							</p>
 						</div>
