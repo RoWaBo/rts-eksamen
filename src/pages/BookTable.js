@@ -22,6 +22,7 @@ const BookTable = () => {
 		setValue,
 	} = useForm()
 
+	// eslint-disable-next-line
 	const phoneValidation = /^(\+?\d{1,3}[- ]?)?\d{8}$/
 
 	// === TABLES

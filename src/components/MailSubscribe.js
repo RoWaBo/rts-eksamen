@@ -18,6 +18,7 @@ const MailSubscribe = () => {
 		clearErrors,
 	} = useForm()
 
+	// eslint-disable-next-line
 	const mailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
 	const onSubmit = async (form) => {

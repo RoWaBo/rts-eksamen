@@ -24,6 +24,7 @@ const Contact = () => {
 	} = useForm()
 
 	const urlValidation =
+		// eslint-disable-next-line
 		/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm
 
 	const onSubmit = async (form) => {
