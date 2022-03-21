@@ -294,7 +294,7 @@ const BookTable = () => {
 						type='submit'
 						css={submitBtnStyle}
 						onClick={() => clearErrors()}>
-						submit
+						reserve
 					</PrimaryButton>
 				</form>
 			</div>
