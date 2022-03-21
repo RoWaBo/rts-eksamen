@@ -36,6 +36,12 @@ const NightClubGallery = () => {
 	const enableLightBox = (i) => {
 		setLightboxIsVisible(true)
 		setClickedImageIndex(i)
+		document.body.style.overflow = 'hidden'
+	}
+
+	const disableLightBox = () => {
+		setLightboxIsVisible(false)
+		document.body.style.overflow = 'unset'
 	}
 
 	// === STYLE ===
@@ -157,7 +163,7 @@ const NightClubGallery = () => {
 						<div css={lightboxStyle} />
 						<AiOutlineCloseSquare
 							css={closeIconStyle}
-							onClick={() => setLightboxIsVisible(false)}
+							onClick={disableLightBox}
 						/>
 						<Swiper
 							onSwiper={setSwiperControl}
