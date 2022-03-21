@@ -139,6 +139,18 @@ const NightClubGallery = () => {
 			transition: { duration: 2 },
 		},
 	}
+	const lightBoxImageAnimation = {
+		initial: {
+			scale: 0.5,
+		},
+		animate: {
+			scale: 1,
+			transition: { duration: 0.5 },
+		},
+		exit: {
+			opacity: 0,
+		},
+	}
 	return (
 		<>
 			<Article heading='Night club gallery' centerContent>
@@ -169,11 +181,7 @@ const NightClubGallery = () => {
 			</Article>
 			<AnimatePresence>
 				{lightboxIsVisible && (
-					<motion.div
-						variants={opacityAnimation}
-						initial='initial'
-						animate='animate'
-						exit='initial'>
+					<motion.div>
 						<div css={lightboxOverlayStyle} />
 						<AiOutlineCloseSquare
 							css={closeIconStyle}
@@ -188,10 +196,15 @@ const NightClubGallery = () => {
 							className='mySwiper'>
 							{gallery?.map((image, i) => (
 								<SwiperSlide key={i}>
-									<img
+									<motion.img
+										key='sliderImage'
 										className='sliderImage'
 										src={image.asset.url}
 										alt={image.description}
+										variants={lightBoxImageAnimation}
+										initial='initial'
+										animate='animate'
+										exit='exit'
 									/>
 								</SwiperSlide>
 							))}
