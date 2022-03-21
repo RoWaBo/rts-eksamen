@@ -130,7 +130,7 @@ const NightClubGallery = () => {
 	}
 	const slideInAnimation = {
 		initial: {
-			opacity: 0,
+			opacity: 0.5,
 			x: -50,
 		},
 		animate: {
